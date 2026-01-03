@@ -76,3 +76,20 @@ export const getDocById = (id: string): DocItem | undefined => {
   }
   return undefined;
 };
+
+/**
+ * 指定された章IDの次の章を取得
+ */
+export const getNextDoc = (currentId: string): DocItem | undefined => {
+  const allDocs: DocItem[] = [];
+  for (const section of curriculum) {
+    allDocs.push(...section.items);
+  }
+
+  const currentIndex = allDocs.findIndex((doc) => doc.id === currentId);
+  if (currentIndex === -1 || currentIndex === allDocs.length - 1) {
+    return undefined;
+  }
+
+  return allDocs[currentIndex + 1];
+};

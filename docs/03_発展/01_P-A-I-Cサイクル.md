@@ -318,34 +318,6 @@ Step 4: Create
 
 ---
 
-## 確認クイズ
-
-### Q1. P-A-I-Cの順序
-P-A-I-Cサイクルの正しい順序は？
-
-- [ ] A) Ask → Prompt → Iterate → Create
-- [ ] B) Prompt → Ask → Iterate → Create
-- [ ] C) Create → Prompt → Ask → Iterate
-- [ ] D) Prompt → Iterate → Ask → Create
-
-### Q2. Iterateフェーズ
-Iterateフェーズで最も重要なことは？
-
-- [ ] A) できるだけ多くの質問をする
-- [ ] B) 具体的なフィードバックで改善を繰り返す
-- [ ] C) AIの出力をそのまま受け入れる
-- [ ] D) 新しいプロジェクトを開始する
-
-### Q3. Create フェーズ
-成果物に含めるべきでないものは？
-
-- [ ] A) 本体（レポート、提案書等）
-- [ ] B) プロセス記録
-- [ ] C) 次のアクション
-- [ ] D) AI出力の生データのみ
-
----
-
 ## 章末まとめ
 
 ### 本章のポイント

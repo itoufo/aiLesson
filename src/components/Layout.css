@@ -62,4 +62,22 @@
   flex: 1;
   overflow-y: auto;
   background: #f9fafb;
+  padding-bottom: 60px;
+}
+
+.site-footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 12px 24px;
+  text-align: center;
+  background: #1f2937;
+  color: #9ca3af;
+  font-size: 0.875rem;
+  z-index: 50;
+}
+
+.site-footer p {
+  margin: 0;
 }

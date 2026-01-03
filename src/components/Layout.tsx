@@ -30,6 +30,9 @@ export const Layout = () => {
         <main className="main-content">
           <Outlet />
         </main>
+        <footer className="site-footer">
+          <p>©健全AI教育協会</p>
+        </footer>
       </div>
     </div>
   );
