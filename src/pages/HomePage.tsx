@@ -1,8 +1,14 @@
 import { Link } from 'react-router-dom';
 import { curriculum } from '../data/curriculum';
+import { BookmarksList } from '../components/BookmarksList';
+import { NotesList } from '../components/NotesList';
+import { useProgress } from '../hooks/useProgress';
+import { ProgressBar } from '../components/ProgressBar';
 import './HomePage.css';
 
 export const HomePage = () => {
+  const { stats } = useProgress();
+  const totalChapters = curriculum.reduce((acc, section) => acc + section.items.length, 0);
   return (
     <div className="home-page">
       <section className="hero">
@@ -82,6 +88,41 @@ export const HomePage = () => {
             </div>
           ))}
         </div>
+      </section>
+
+      <section className="progress-overview">
+        <h2>学習進捗</h2>
+        <ProgressBar
+          current={stats.completedChapters}
+          total={totalChapters}
+          label="全体の進捗"
+          color="success"
+          size="large"
+        />
+        <div className="stats-grid">
+          <div className="stat-card">
+            <span className="stat-value">{stats.completedChapters}</span>
+            <span className="stat-label">完了章</span>
+          </div>
+          <div className="stat-card">
+            <span className="stat-value">{Math.floor(stats.totalTimeSpent / 60)}</span>
+            <span className="stat-label">学習時間(分)</span>
+          </div>
+          <div className="stat-card">
+            <span className="stat-value">{stats.currentStreak}</span>
+            <span className="stat-label">連続学習日数</span>
+          </div>
+        </div>
+      </section>
+
+      <section className="bookmarks-section">
+        <h2>⭐ ブックマーク</h2>
+        <BookmarksList />
+      </section>
+
+      <section className="notes-section">
+        <h2>📝 ノート</h2>
+        <NotesList />
       </section>
 
       <section className="quick-start">

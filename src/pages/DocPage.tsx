@@ -1,20 +1,39 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useParams, Navigate } from 'react-router-dom';
 import { MarkdownViewer } from '../components/MarkdownViewer';
 import { QuizModal } from '../components/QuizModal';
+import { NotesPanel } from '../components/NotesPanel';
 import { getDocById, getNextDoc } from '../data/curriculum';
 import { getQuizByChapterId } from '../data/quizzes';
+import { useProgress } from '../hooks/useProgress';
 import './DocPage.css';
 
 export const DocPage = () => {
   const { docId } = useParams<{ docId: string }>();
   const [isQuizOpen, setIsQuizOpen] = useState(false);
+  const [isNotesOpen, setIsNotesOpen] = useState(false);
+  const { markAsVisited, updateTimeSpent, getChapterProgress, markAsCompleted } = useProgress();
+
+  useEffect(() => {
+    if (docId) {
+      markAsVisited(docId);
+    }
+  }, [docId, markAsVisited]);
+
+  useEffect(() => {
+    if (docId) {
+      return () => {
+        updateTimeSpent(docId);
+      };
+    }
+  }, [docId, updateTimeSpent]);
 
   if (!docId) {
     return <Navigate to="/" replace />;
   }
 
   const doc = getDocById(docId);
+  const progress = getChapterProgress(docId);
 
   if (!doc) {
     return (
@@ -28,8 +47,27 @@ export const DocPage = () => {
   const quiz = getQuizByChapterId(docId);
   const nextDoc = getNextDoc(docId);
 
+  const handleQuizComplete = (passed: boolean) => {
+    if (passed && docId) {
+      markAsCompleted(docId);
+    }
+  };
+
   return (
     <>
+      <div className="doc-header-controls">
+        <button
+          className="notes-toggle-button"
+          onClick={() => setIsNotesOpen(!isNotesOpen)}
+          aria-label="ノートを開く"
+        >
+          📝 ノート
+        </button>
+        {progress?.completed && (
+          <span className="completion-badge">✅ 完了済み</span>
+        )}
+      </div>
+
       <MarkdownViewer filePath={doc.path} title={doc.title} />
 
       {quiz && (
@@ -59,6 +97,15 @@ export const DocPage = () => {
           nextDoc={nextDoc}
           isOpen={isQuizOpen}
           onClose={() => setIsQuizOpen(false)}
+          onComplete={handleQuizComplete}
+        />
+      )}
+
+      {docId && (
+        <NotesPanel
+          chapterId={docId}
+          isOpen={isNotesOpen}
+          onClose={() => setIsNotesOpen(false)}
         />
       )}
     </>

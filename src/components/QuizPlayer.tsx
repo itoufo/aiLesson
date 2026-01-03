@@ -9,7 +9,7 @@ const PASS_THRESHOLD = 80; // 合格ライン（%）
 interface QuizPlayerProps {
   quiz: Quiz;
   nextDoc?: DocItem;
-  onComplete?: (result: QuizResult) => void;
+  onComplete?: (passed: boolean) => void;
   onClose?: () => void;
 }
 
@@ -78,7 +78,8 @@ export function QuizPlayer({ quiz, nextDoc, onComplete, onClose }: QuizPlayerPro
       };
       setResult(finalResult);
       setIsCompleted(true);
-      onComplete?.(finalResult);
+      const isPassed = finalResult.score >= PASS_THRESHOLD;
+      onComplete?.(isPassed);
     } else {
       setCurrentIndex((prev) => prev + 1);
       setSelectedOptions([]);

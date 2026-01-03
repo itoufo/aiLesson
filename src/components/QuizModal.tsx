@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-import type { Quiz, QuizResult } from '../data/quiz.types';
+import type { Quiz } from '../data/quiz.types';
 import type { DocItem } from '../data/curriculum';
 import { QuizPlayer } from './QuizPlayer';
 import './QuizModal.css';
@@ -9,7 +9,7 @@ interface QuizModalProps {
   nextDoc?: DocItem;
   isOpen: boolean;
   onClose: () => void;
-  onComplete?: (result: QuizResult) => void;
+  onComplete?: (passed: boolean) => void;
 }
 
 export function QuizModal({ quiz, nextDoc, isOpen, onClose, onComplete }: QuizModalProps) {
