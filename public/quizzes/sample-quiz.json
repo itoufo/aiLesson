@@ -1,0 +1,62 @@
+{
+  "docId": "sample-chapter",
+  "title": "サンプルクイズ",
+  "questions": [
+    {
+      "id": "q1",
+      "type": "single",
+      "question": "これはサンプル質問です。正解はどれでしょう？",
+      "options": [
+        {
+          "id": "a",
+          "text": "選択肢A",
+          "isCorrect": false
+        },
+        {
+          "id": "b",
+          "text": "選択肢B（正解）",
+          "isCorrect": true
+        },
+        {
+          "id": "c",
+          "text": "選択肢C",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "選択肢D",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "これは解説文です。なぜ選択肢Bが正解なのかを説明します。"
+    },
+    {
+      "id": "q2",
+      "type": "multiple",
+      "question": "複数選択の質問です。正しいものをすべて選んでください。",
+      "options": [
+        {
+          "id": "a",
+          "text": "正解1",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "不正解",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "正解2",
+          "isCorrect": true
+        },
+        {
+          "id": "d",
+          "text": "不正解",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "複数選択問題では、すべての正解を選ぶ必要があります。"
+    }
+  ]
+}

@@ -4,19 +4,31 @@ import { MarkdownViewer } from '../components/MarkdownViewer';
 import { QuizModal } from '../components/QuizModal';
 import { NotesPanel } from '../components/NotesPanel';
 import { getDocById, getNextDoc } from '../data/curriculum';
-import { getQuizByChapterId } from '../data/quizzes';
+import { QuizService } from '../services/quizService';
 import { useProgress } from '../hooks/useProgress';
+import type { Quiz } from '../data/quiz.types';
 import './DocPage.css';
 
 export const DocPage = () => {
   const { docId } = useParams<{ docId: string }>();
   const [isQuizOpen, setIsQuizOpen] = useState(false);
   const [isNotesOpen, setIsNotesOpen] = useState(false);
+  const [quiz, setQuiz] = useState<Quiz | null>(null);
+  const [loadingQuiz, setLoadingQuiz] = useState(true);
   const { markAsVisited, updateTimeSpent, getChapterProgress, markAsCompleted } = useProgress();
 
   useEffect(() => {
     if (docId) {
       markAsVisited(docId);
+      // クイズを動的に読み込む
+      setLoadingQuiz(true);
+      QuizService.loadQuiz(docId)
+        .then(quizData => {
+          setQuiz(quizData);
+        })
+        .finally(() => {
+          setLoadingQuiz(false);
+        });
     }
   }, [docId, markAsVisited]);
 
@@ -44,7 +56,6 @@ export const DocPage = () => {
     );
   }
 
-  const quiz = getQuizByChapterId(docId);
   const nextDoc = getNextDoc(docId);
 
   const handleQuizComplete = (passed: boolean) => {
@@ -70,7 +81,7 @@ export const DocPage = () => {
 
       <MarkdownViewer filePath={doc.path} title={doc.title} />
 
-      {quiz && (
+      {!loadingQuiz && quiz && (
         <div className="quiz-section">
           <div className="quiz-section-content">
             <div className="quiz-section-info">
