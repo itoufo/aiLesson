@@ -1,3 +1,5 @@
+![一般社団法人 健全AI教育協会](/docs/images/common/haiia_logo.png)
+
 # 第2章：PBLプロジェクト設計
 
 ## 学習目標
@@ -310,3 +312,7 @@ PBL（課題解決型学習）の特徴として正しいものは？
 - HAIIA「次世代AI教育プログラム」
 - Buck Institute for Education "PBL Works"
 - スタンフォードd.school「デザイン思考」
+
+---
+
+©健全AI教育協会

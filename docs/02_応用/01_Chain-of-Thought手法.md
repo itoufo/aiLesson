@@ -1,3 +1,5 @@
+![一般社団法人 健全AI教育協会](/docs/images/common/haiia_logo.png)
+
 # 第1章：Chain-of-Thought手法
 
 ## 学習目標
@@ -356,3 +358,7 @@ CoTが最も効果的なのは次のうちどれ？
 - Wei et al. "Chain-of-Thought Prompting Elicits Reasoning in Large Language Models" (2022)
 - Yao et al. "Tree of Thoughts: Deliberate Problem Solving with Large Language Models" (2023)
 - Kojima et al. "Large Language Models are Zero-Shot Reasoners" (2022)
+
+---
+
+©健全AI教育協会
