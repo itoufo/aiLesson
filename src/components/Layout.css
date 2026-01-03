@@ -50,6 +50,12 @@
   font-weight: 600;
   color: #1a1a2e;
   margin: 0;
+  flex: 1;
+}
+
+.top-bar-logo {
+  height: 36px;
+  width: auto;
 }
 
 .main-content {

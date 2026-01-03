@@ -21,6 +21,11 @@ export const Layout = () => {
             </svg>
           </button>
           <h1 className="top-bar-title">AI活用人材育成カリキュラム</h1>
+          <img
+            src="/docs/images/common/haiia_logo-1-300x297.png"
+            alt="一般社団法人 健全AI教育協会"
+            className="top-bar-logo"
+          />
         </header>
         <main className="main-content">
           <Outlet />
