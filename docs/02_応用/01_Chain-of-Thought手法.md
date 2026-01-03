@@ -329,6 +329,3 @@ CoTで回答してください。
 - Yao et al. "Tree of Thoughts: Deliberate Problem Solving with Large Language Models" (2023)
 - Kojima et al. "Large Language Models are Zero-Shot Reasoners" (2022)
 
----
-
-©健全AI教育協会

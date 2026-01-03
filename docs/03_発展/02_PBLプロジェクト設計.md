@@ -283,6 +283,3 @@ C) 新サービス・新規事業の企画
 - Buck Institute for Education "PBL Works"
 - スタンフォードd.school「デザイン思考」
 
----
-
-©健全AI教育協会
