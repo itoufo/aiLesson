@@ -1,4 +1,4 @@
-![一般社団法人 健全AI教育協会](/docs/images/common/haiia_logo.png)
+<img src="/docs/images/common/haiia_logo.png" alt="一般社団法人 健全AI教育協会" width="280">
 
 # 第2章：PBLプロジェクト設計
 
