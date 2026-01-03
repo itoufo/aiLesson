@@ -1,5 +1,3 @@
-![一般社団法人 健全AI教育協会](/docs/images/common/haiia_logo_small.png)
-
 # 第1章：Chain-of-Thought手法
 
 ## 学習目標
